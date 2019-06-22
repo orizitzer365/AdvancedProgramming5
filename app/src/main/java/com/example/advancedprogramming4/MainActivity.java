@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,JoystickActivity.class);
         intent.putExtra("ip",ip.getText().toString());
         intent.putExtra("port",port.getText().toString());
+
         startActivity(intent);
     }
 }
