@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
     protected void Connect(View view){
         EditText ip = (EditText)findViewById(R.id.ip_box);
         EditText port = (EditText)findViewById(R.id.port_box);
-
         Intent intent = new Intent(this,JoystickActivity.class);
         intent.putExtra("ip",ip.getText().toString());
         intent.putExtra("port",port.getText().toString());
