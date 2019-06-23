@@ -44,6 +44,8 @@ public class Joystick extends View {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
+        origin = new Point(w/2,h/2);
+        joystickPos= origin;
 // Account for padding
 
     }

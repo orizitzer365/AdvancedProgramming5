@@ -5,4 +5,5 @@
     <string name="ip_hint">IP address</string>
     <string name="port_hint">port number</string>
     <string name="connect">Connect</string>
+    <string name="send_message">Connect</string>
 </resources>

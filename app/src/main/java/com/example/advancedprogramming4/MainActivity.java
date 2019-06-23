@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+
     protected void Connect(View view){
         EditText ip = (EditText)findViewById(R.id.ip_box);
         EditText port = (EditText)findViewById(R.id.port_box);
