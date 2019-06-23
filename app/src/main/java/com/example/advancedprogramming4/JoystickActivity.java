@@ -3,6 +3,7 @@ package com.example.advancedprogramming4;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.AsyncTask;
@@ -15,7 +16,10 @@ public class JoystickActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        new ConnectTask().execute("");
+        Intent intent = getIntent();
+        String ip = intent.getStringExtra("ip");
+        int port = Integer.parseInt(intent.getStringExtra("port"));
+        new ConnectTask(ip,port).execute("");
         Joystick joystick = new Joystick(this,mTcpClient);
         setContentView(joystick);
     }
@@ -30,6 +34,14 @@ public class JoystickActivity extends AppCompatActivity {
 
     public class ConnectTask extends AsyncTask<String, String, TcpClient> {
 
+        private String ip;
+        private int port;
+
+        public ConnectTask(String server_ip,int port_number){
+            ip=server_ip;
+            port = port_number;
+        }
+
         @Override
         protected TcpClient doInBackground(String... message) {
 
@@ -41,7 +53,7 @@ public class JoystickActivity extends AppCompatActivity {
                     //this method calls the onProgressUpdate
                     publishProgress(message);
                 }
-            });
+            },ip,port);
             mTcpClient.run();
 
             return null;
